@@ -1,0 +1,54 @@
+<!--ADMIN SITE-->
+<%- include('partials/header') %>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h4>Create a new webinar</h4>
+      </div>
+      <div class="card-body">
+        <form action="/admin/webinar" method="POST">
+          <div>
+            <label for="" class="form-label">Title</label>
+            <input type='text' name='title' class="form-control"/>
+          </div>
+          <div>
+            <label for="" class="form-label">Date</label>
+            <input type="date" name='date' class="form-control" />
+          </div>
+          <div>
+              <label for="" class="form-label">Time</label>
+              <input type="time" name='time' class="form-control" />
+            </div>
+          <div>
+            <label for="" class="form-label">Summary</label>
+            <textarea name="summary" id="" rows="10" class="form-control"></textarea>
+          </div>
+          <div>
+            <label for="" class="form-label">Form Site - enter full URL</label>
+            <input type='text' name='attendees' class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-info">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h4>Edit an existing webinar</h4>
+      </div>
+      <div class="card-body">
+          <% webinars.forEach(webinar => { %>
+            <p>Date: <%= webinar.date %></p>
+            <p>Title <%= webinar.title %></p>
+            <a href="/admin/webinar/edit/<%= webinar._id %>" class="btn btn-info">Edit</a>
+          <% }) %>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<%- include('partials/footer') %>

@@ -1,0 +1,30 @@
+<!--ADMIN SITE-->
+<%- include('partials/header') %>
+
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <form action="/admin/webinar/edit/<%= webinar._id %>" method="POST">
+        <div>
+          <label for="" class="form-label">Title</label>
+          <input type='text' name='title' class="form-control" value='<%= webinar.title %>' />
+        </div>
+        <div>
+          <label for="" class="form-label">Date</label>
+          <input type="date" name='date' class="form-control" value="<%= webinar.date %>" />
+        </div>
+        <div>
+          <label for="" class="form-label">Summary</label>
+          <textarea name="summary" id="" rows="10" class="form-control"><%= webinar.summary %></textarea>
+        </div>
+        <div>
+          <label for="" class="form-label">Form Site - enter full URL</label>
+          <input type='text' name='attendees' class="form-control" value='<%= webinar.attendees %>' />
+        </div>
+        <input value="<%= webinar._id %>" hidden />
+        <button type="submit" class="btn btn-info">Update</button>
+      </form>
+    </div>
+  </div>
+
+<%- include('partials/footer') %>
